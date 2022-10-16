@@ -1,4 +1,4 @@
-public class ProductIterator implements ListIterator {
+public class ProductIterator {
 
 	private ClassProductList classProductList;
 

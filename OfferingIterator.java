@@ -1,4 +1,4 @@
-public class OfferingIterator implements ListIterator {
+public class OfferingIterator {
 
 	public boolean hasNext() {
 		return false;

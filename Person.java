@@ -1,8 +1,8 @@
 public abstract class Person {
 
+	public int type = 0;		//by default buyer(0)
+	String uname;
 	private ProductMenu theProductMenu;
-
-	private ProductMenu productMenu;
 
 	public abstract void showMenu();
 

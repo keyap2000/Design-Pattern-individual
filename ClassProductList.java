@@ -1,4 +1,6 @@
-public class ClassProductList extends ArrayList {
+import java.util.ArrayList;
+
+public class ClassProductList extends ArrayList<Product> {
 
 	private ProductIterator productIterator;
 
@@ -6,8 +8,11 @@ public class ClassProductList extends ArrayList {
 
 	private Product[] product;
 
-	public void accept(NodeVisitor visitor) {
+	public ClassProductList(){
 
 	}
 
+	public void accept(NodeVisitor visitor) {
+		//visitor.visitFacade(visitor);
+	}
 }
