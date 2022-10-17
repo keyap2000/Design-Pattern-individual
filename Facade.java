@@ -1,3 +1,6 @@
+import java.io.BufferedReader;
+import java.io.FileReader;
+
 public class Facade {
 
 	private int UserType;
@@ -34,27 +37,30 @@ public class Facade {
 		return false;
 	}
 
-	public void addTrading() {
-		TradingMenu theTradingMenu;
+	public void addTrading(Product product) {
+		TradingMenu theTradingMenu = new TradingMenu();
 
 		if(thePerson.type == 0){		//buyer
-			//theTradingMenu = new BuyerTradingMenu();
+			theTradingMenu = new BuyerTradingMenu();
 		}
 		else{							//seller
-			//theTradingMenu = new SellerTradingMenu();
+			theTradingMenu = new SellerTradingMenu();
 		}
+		Trading trading = new Trading();
+		theTradingMenu.ShowMenu(trading, thePerson);
+		product.AddTrading(trading);
 	}
 
-	public void viewTrading() {
+	public void viewTrading(Trading trading) {
 		TradingMenu theTradingMenu;
 
 		if(thePerson.type == 0){		//buyer
-			//theTradingMenu = new BuyerTradingMenu();
+			theTradingMenu = new BuyerTradingMenu();
 		}
 		else{							//seller
-			//theTradingMenu = new SellerTradingMenu();
+			theTradingMenu = new SellerTradingMenu();
 		}
-
+		theTradingMenu.ShowMenu(trading, thePerson);
 	}
 
 	public void decideBidding() {
@@ -71,6 +77,7 @@ public class Facade {
 
 	public void remind() {
 		Reminder theReminder = new Reminder();
+		theReminder.showReminder(thePerson.GetProductList());
 	}
 
 	public void createUser(UserInfoItem userinfoitem) {
@@ -85,11 +92,30 @@ public class Facade {
 	}
 
 	public void createProductList() {
-
+		theProductList = new ClassProductList();
+		theProductList.InitializeFromFile();
 	}
 
 	public void AttachProductToUser() {
-
+		BufferedReader file;
+		try {
+			file = new BufferedReader(new FileReader("UserProduct.txt"));
+			String aline, strUserName, strCourseName;
+			while ((aline = file.readLine()) != null) // not the EOF
+			{
+				strUserName = GetUserName(aline);
+				strCourseName = GetCourseName(aline);
+				if (strUserName.compareTo(thePerson.UserName) == 0) /// the UserName mateches
+				{
+					theSelecteCourse = FindCourseByCourseName(strCourseName);
+					if (theSelecteCourse != null) /// Find the Course in the CourseList--->attach
+					{
+						thePerson.AddCourse(theSelecteCourse);
+					}
+				}
+			}
+		} catch (Exception ignored) {
+		}
 	}
 
 	public Product SelectProduct() {

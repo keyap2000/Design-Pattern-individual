@@ -3,6 +3,7 @@ public abstract class Person {
 	public int type = 0;		//by default buyer(0)
 	String uname;
 	private ProductMenu theProductMenu;
+	ClassProductList classProductList;
 
 	public abstract void showMenu();
 
@@ -24,4 +25,7 @@ public abstract class Person {
 
 	public abstract ProductMenu CreateProductMenu();
 
+	public ClassProductList GetProductList() {
+		return  classProductList;
+	}
 }

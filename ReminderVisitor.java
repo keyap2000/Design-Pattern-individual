@@ -4,7 +4,10 @@ public class ReminderVisitor extends NodeVisitor {
 
 	private ClassProductList classProductList;
 
-	public void visitProduct(Product product) {
+    public ReminderVisitor(Reminder reminder) {
+    }
+
+    public void visitProduct(Product product) {
 
 	}
 

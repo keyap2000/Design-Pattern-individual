@@ -1,3 +1,5 @@
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.util.ArrayList;
 
 public class ClassProductList extends ArrayList<Product> {
@@ -15,4 +17,20 @@ public class ClassProductList extends ArrayList<Product> {
 	public void accept(NodeVisitor visitor) {
 		//visitor.visitFacade(visitor);
 	}
+
+    public void InitializeFromFile() {
+		try {
+			BufferedReader file;
+			String strProductName;
+			file = new BufferedReader(new FileReader("ProductInfo.txt"));
+			while ((strProductName = file.readLine()) != null) {
+				Product product;
+				product = new Product(strProductName);
+		//      theCourse.CourseName= strCourseName;
+				System.out.println(product);
+				add(product);
+			}
+		} catch (Exception ignored) {
+		}
+    }
 }

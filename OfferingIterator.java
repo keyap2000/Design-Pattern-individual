@@ -1,19 +1,40 @@
-public class OfferingIterator {
+public class OfferingIterator implements ListIterator {
 
-	public boolean hasNext() {
-		return false;
+	private OfferingList offeringlist;
+
+	///  pointing to the location before the first element
+	private int CurrentOfferingNumber = -1;
+
+	OfferingIterator(OfferingList theofferinglist)
+	{
+		offeringlist = theofferinglist;
+		MoveToHead();
 	}
 
-	public Offering Next() {
-		return null;
+	public boolean hasNext() {
+
+		return CurrentOfferingNumber <  offeringlist.size() - 1;
+	}
+
+	public Product Next() {
+		//return type - Offering
+
+		if (hasNext())
+		{
+			CurrentOfferingNumber ++;
+			return (Product) offeringlist.get(CurrentOfferingNumber);
+		}
+		else
+		{
+			return null;
+		}
 	}
 
 	public void MoveToHead() {
-
+		CurrentOfferingNumber=-1;
 	}
 
 	public void Remove() {
-
+		offeringlist.remove(CurrentOfferingNumber);
 	}
-
 }
