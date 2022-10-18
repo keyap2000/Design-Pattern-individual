@@ -1,11 +1,21 @@
 public class Seller extends Person {
 
-	public void showMenu() {
-
+	Seller(){
+		type = 1;
 	}
 
-	public ProductMenu CreateProductMenu() {
-		return null;
+	public void showMenu() {
+		super.ShowMenu();
+		showAddButton();
+		//showViewButtons();
+		//showComboxes();
+		//showRadios();
+		//show();
+		//return ifLogout();
+	}
+
+	public void CreateProductMenu(Product product, int level) {
+		//return null;
 	}
 
 }

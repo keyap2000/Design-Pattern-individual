@@ -27,7 +27,7 @@ public abstract class Person {
 
 	}
 
-	public abstract ProductMenu CreateProductMenu();
+	public abstract void CreateProductMenu(Product product, int level);
 
 	public ClassProductList GetProductList() {
 		return  classProductList;
@@ -37,8 +37,8 @@ public abstract class Person {
 		classProductList.add(theSelectedProduct);
 	}
 
-	public void CreateProductMenu(Product theSelectedProduct, int nProductCategory) {
-	}
+	//public void CreateProductMenu(Product theSelectedProduct, int nProductCategory) {
+	//}
 
 	public boolean ShowMenu() {
 		// create a iterator for the assignment list

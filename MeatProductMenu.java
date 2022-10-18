@@ -1,4 +1,4 @@
-public class MeatProductMenu implements ProductMenu {
+public class MeatProductMenu extends ProductMenu {
 
 	private ProduceProductMenu produceProductMenu;
 

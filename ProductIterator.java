@@ -10,8 +10,10 @@ public class ProductIterator implements ListIterator{
 	}
 
 	ProductIterator(ClassProductList classproductlist){
+
 		classProductList = classproductlist;
 	}
+
 	public Product Next() {
 
 		if(hasNext()){
