@@ -1,6 +1,7 @@
 public interface ProductMenu {
 
 	//Person person = new Person();
+	Product theProduct = null;
 
 	public abstract void showMenu();
 

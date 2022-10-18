@@ -33,4 +33,18 @@ public class ProductIterator implements ListIterator{
 		classProductList.remove(CurrentProductNumber);
 	}
 
+    public Product next(String strProductName) {
+		Product product;
+		product = (Product) Next();
+		while(product != null)
+		{
+			if(strProductName.compareTo(product.toString())==0)
+			{
+				return product;
+			}
+			product = (Product) Next();
+		}
+		return null;
+	}
+
 }

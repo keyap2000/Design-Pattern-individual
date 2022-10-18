@@ -104,13 +104,13 @@ public class Facade {
 			while ((aline = file.readLine()) != null) // not the EOF
 			{
 				strUserName = GetUserName(aline);
-				strCourseName = GetCourseName(aline);
+				String strProductName = GetProductName(aline);
 				if (strUserName.compareTo(thePerson.UserName) == 0) /// the UserName mateches
 				{
-					theSelecteCourse = FindCourseByCourseName(strCourseName);
-					if (theSelecteCourse != null) /// Find the Course in the CourseList--->attach
+					theSelectedProduct = FindProductByProductName(strProductName);
+					if (theSelectedProduct != null) /// Find the Course in the CourseList--->attach
 					{
-						thePerson.AddCourse(theSelecteCourse);
+						thePerson.AddProduct(theSelectedProduct);
 					}
 				}
 			}
@@ -118,16 +118,39 @@ public class Facade {
 		}
 	}
 
-	public Product SelectProduct() {
-		return null;
+	private Product FindProductByProductName(String strProductName) {
+		ProductIterator Iterator = new ProductIterator(theProductList);
+		return (Product) Iterator.next(strProductName);
 	}
 
-	public void productOperation() {
+	private String GetProductName(String aline) {
+		int Sep = aline.lastIndexOf(':');
+		return aline.substring(Sep + 1);
+	}
 
+	private String GetUserName(String aline) {
+		int Sep = aline.lastIndexOf(':');
+		return aline.substring(0, Sep);
+	}
+
+	//actual return type - Product
+	public Boolean SelectProduct() {
+		ProductSelectDialog theDlg = new ProductSelectDialog();
+		theSelectedProduct = theDlg.ShowDlg(thePerson.classProductList);
+		thePerson.currentProduct = theSelectedProduct;
+		nProductCategory = theDlg.nProductCategory;
+		return theDlg.isLogout();
+	}
+
+	//actual return type - void
+	public boolean productOperation() {
+		thePerson.CreateProductMenu(theSelectedProduct, nProductCategory);
+		return thePerson.ShowMenu();
+		//// 0: logout
+		// 1: select other product
 	}
 
 	public static void main(String[] args) {
 		System.out.println("Facade class implemented");
 	}
-
 }

@@ -2,7 +2,7 @@ import java.util.ArrayList;
 
 public class Product {
 
-	private ClassProductList classProductList;
+	ClassProductList classProductList;
 	ArrayList<Trading> tradingList= new ArrayList<>();
 
 	private Trading trading;
