@@ -5,8 +5,12 @@ public class ProductIterator implements Iterator{
 	private ClassProductList classProductList = new ClassProductList();
 	private int CurrentProductNumber=-1;
 
+	ProductIterator(ClassProductList classproductlist){
+		classProductList = classproductlist;
+	}
 
 	public boolean hasNext() {
+		System.out.println("class product list : " + classProductList);
 		return CurrentProductNumber < classProductList.size() - 1;
 		//return false;
 	}
@@ -14,11 +18,6 @@ public class ProductIterator implements Iterator{
 	@Override
 	public Object next() {
 		return null;
-	}
-
-	ProductIterator(ClassProductList classproductlist){
-
-		classProductList = classproductlist;
 	}
 
 	public Product Next() {

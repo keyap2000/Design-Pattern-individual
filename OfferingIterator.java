@@ -1,4 +1,6 @@
-public class OfferingIterator implements ListIterator {
+import java.util.Iterator;
+
+public class OfferingIterator implements Iterator {
 
 	private OfferingList offeringlist;
 
@@ -36,5 +38,33 @@ public class OfferingIterator implements ListIterator {
 
 	public void Remove() {
 		offeringlist.remove(CurrentOfferingNumber);
+	}
+
+	/// get the next offering that fits the Username;
+	Object next(String UserName)
+	{
+		Offering offering = (Offering) next();
+		while(offering!=null)
+		{
+			if(UserName.compareTo(offering.theOfferor)==0)
+			{
+				return offering;
+			}
+			offering=(Offering) next();
+		}
+		return null;
+	}
+
+	public Object next()
+	{
+		if (hasNext())
+		{
+			CurrentOfferingNumber ++;
+			return offeringlist.get(CurrentOfferingNumber);
+		}
+		else
+		{
+			return null;
+		}
 	}
 }

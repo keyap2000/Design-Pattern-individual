@@ -3,6 +3,8 @@ import java.util.Date;
 
 public class Trading {
 
+	public String tradingName;
+	public Offering SuggestOffering = new Offering();
 	private Product product;
 	private OfferingList offeringList = new OfferingList();
 	Offering offering = new Offering();

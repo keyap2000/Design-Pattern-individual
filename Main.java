@@ -11,22 +11,23 @@ public class Main {
         theFacade.createProductList();
         while (true) {
             boolean bExit;
+            System.out.println("login method called");
             bExit = Facade.login(userinfoitem);
             if (bExit)
                 break;
-            // userinfoitem.strUserName = "Inst1";
+            // userinfoitem.strUserName = "pepe";
             // userinfoitem.UserType = 1;
             theFacade.createUser(userinfoitem);
             theFacade.AttachProductToUser();
             if (userinfoitem.UserType == UserInfoItem.USER_TYPE.Buyer)
-                // if user is a buyer then remind him of the due date
+                // if user is a buyer then remind him/her of the due date
                 theFacade.remind();
-            boolean bLogout = false;
-            while (!bLogout) {
-                bLogout = theFacade.SelectProduct();
-                if (bLogout)
+            boolean blogout = false;
+            while (!blogout) {
+                blogout = theFacade.SelectProduct();
+                if (blogout)
                     break;
-                bLogout = theFacade.productOperation();
+                blogout = theFacade.productOperation();
             }
         }
 //    System.out.println(userinfoitem.strUserName +userinfoitem.UserType );

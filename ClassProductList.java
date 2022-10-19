@@ -23,10 +23,9 @@ public class ClassProductList extends ArrayList<Product> {
 			String strProductName;
 			file = new BufferedReader(new FileReader("ProductInfo.txt"));
 			while ((strProductName = file.readLine()) != null) {
-				Product product;
-				product = new Product(strProductName);
+				Product product = new Product(strProductName);
 		        //product.productName = strProductName;
-				System.out.println(product);
+				System.out.println("product : " + product);
 				add(product);
 			}
 		} catch (Exception ignored) {

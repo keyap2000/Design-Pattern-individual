@@ -17,10 +17,9 @@ public class Buyer extends Person {
 	public void CreateProductMenu(Product product, int level) {
 
 		if (level == 0) {
-			//theProductMenu = new HighLevelProductMenu();
+			ProductMenu theProductMenu = new MeatProductMenu();
 		} else {
-			//theProductMenu = new LowLevelProductMenu();
+			ProductMenu theProductMenu = new ProduceProductMenu();
 		}
-
 	}
 }

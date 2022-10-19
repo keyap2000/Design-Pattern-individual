@@ -102,21 +102,25 @@ public class Facade {
 		BufferedReader file;
 		try {
 			file = new BufferedReader(new FileReader("UserProduct.txt"));
-			String aline, strUserName, strCourseName;
+			String aline, strUserName, productName;
 			while ((aline = file.readLine()) != null) // not the EOF
 			{
 				strUserName = GetUserName(aline);
-				String strProductName = GetProductName(aline);
-				if (strUserName.compareTo(thePerson.UserName) == 0) /// the UserName mateches
+				productName = GetProductName(aline);
+				System.out.println("username : " + strUserName);
+				System.out.println("product name : " + productName);
+				if (strUserName.compareTo(thePerson.UserName) == 0) // for matching the UserName
 				{
-					theSelectedProduct = FindProductByProductName(strProductName);
-					if (theSelectedProduct != null) /// Find the Course in the CourseList--->attach
+					theSelectedProduct = FindProductByProductName(productName);
+					System.out.println("selected product is - " + theSelectedProduct);
+					if (theSelectedProduct != null) /// Find the product in the ProductList--->attach
 					{
 						thePerson.AddProduct(theSelectedProduct);
 					}
 				}
+				System.out.println("inside else");
 			}
-		} catch (Exception ignored) {
+		} catch (Exception exception) {
 		}
 	}
 

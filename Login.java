@@ -77,11 +77,11 @@ public class Login extends JDialog {
             if (StudentRadio.isSelected())//// student
             {
                 UserType = UserInfoItem.USER_TYPE.Buyer; /// 0 for student
-                file = new BufferedReader(new FileReader("StuInfo.txt"));
+                file = new BufferedReader(new FileReader("BuyerInfo.txt"));
             } else// instructor
             {
                 UserType = UserInfoItem.USER_TYPE.Seller; // 1 for instructor
-                file = new BufferedReader(new FileReader("InsInfor.txt"));
+                file = new BufferedReader(new FileReader("SellerInfo.txt"));
             }
             UserBox = UserNameText.getText();
             String PasswordBox = new String(PasswordText.getPassword());
@@ -90,6 +90,8 @@ public class Login extends JDialog {
             while ((aline = file.readLine()) != null) {
                 UserName = GetUserName(aline);
                 Password = GetPassword(aline);
+                System.out.println("username : " + UserName);
+                System.out.println("password : " + Password);
                 if (UserName.compareTo(UserBox) == 0 && Password.compareTo(PasswordBox) == 0)
                     LoginName = UserName;
             }
@@ -98,7 +100,6 @@ public class Login extends JDialog {
             }
         } catch (Exception ignored) {
         }
-
     }
 
     public String GetUserName(String loginCredentials) {

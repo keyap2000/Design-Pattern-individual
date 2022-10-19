@@ -6,10 +6,11 @@ public class Product {
 	ArrayList<Trading> tradingList= new ArrayList<>();
 
 	private Trading trading;
-	String productName;
+	static String productName;
 
 	public Product(String strProductName) {
 		this.productName = strProductName;
+		System.out.println("in product constructor : " + this.productName);
 	}
 
 	void AddTrading(Trading newTrading)
