@@ -27,9 +27,11 @@ public class Facade {
 	}
 	*/
 
-	Facade(){}
+	Facade(){
 
-	public boolean login() {
+	}
+
+	public static boolean login(UserInfoItem userinfoItem) {
 		Login login = new Login();
 		UserInfoItem userinfoitem = new UserInfoItem();
 		userinfoitem.strUserName = login.GetUserName();
@@ -148,9 +150,5 @@ public class Facade {
 		return thePerson.ShowMenu();
 		//// 0: logout
 		// 1: select other product
-	}
-
-	public static void main(String[] args) {
-		System.out.println("Facade class implemented");
 	}
 }

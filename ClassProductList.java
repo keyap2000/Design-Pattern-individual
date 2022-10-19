@@ -5,11 +5,9 @@ import java.util.ArrayList;
 public class ClassProductList extends ArrayList<Product> {
 
 	private ProductIterator productIterator;
-
 	private ReminderVisitor reminderVisitor;
-
 	private Product[] product;
-
+	
 	public ClassProductList(){
 
 	}
@@ -17,6 +15,7 @@ public class ClassProductList extends ArrayList<Product> {
 	public void accept(NodeVisitor visitor) {
 		//visitor.visitFacade(visitor);
 	}
+
 
     public void InitializeFromFile() {
 		try {
@@ -26,7 +25,7 @@ public class ClassProductList extends ArrayList<Product> {
 			while ((strProductName = file.readLine()) != null) {
 				Product product;
 				product = new Product(strProductName);
-		//      theCourse.CourseName= strCourseName;
+		        //product.productName = strProductName;
 				System.out.println(product);
 				add(product);
 			}

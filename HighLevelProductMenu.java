@@ -20,7 +20,7 @@ public class HighLevelProductMenu extends ProductMenu{
         this.getContentPane().add(OptionAddButton, null);
     }
 
-    private void TradingAddButton_actionPerformed() {
+     void TradingAddButton_actionPerformed() {
     }
 
     @Override
@@ -34,7 +34,7 @@ public class HighLevelProductMenu extends ProductMenu{
         this.getContentPane().add(OptionViewButton, null);
     }
 
-    private void AssignmentViewButton_actionPerformed() {
+    void AssignmentViewButton_actionPerformed() {
     }
 
     @Override

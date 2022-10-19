@@ -79,4 +79,15 @@ public abstract class ProductMenu extends JDialog {
 		}
 	}
 
+	void TradingAddButton_actionPerformed()
+	{
+		Main.theFacade.addTrading(theProduct);
+		refresh();
+	}
+	void AssignmentViewButton_actionPerformed()
+	{
+		Trading trading = (Trading) TradingCombox.getSelectedItem() ;
+		Main.theFacade.viewTrading(trading);
+	}
+
 }

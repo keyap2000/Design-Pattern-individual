@@ -1,12 +1,19 @@
-public class ProductIterator implements ListIterator{
+import java.util.Iterator;
 
-	private ClassProductList classProductList;
+public class ProductIterator implements Iterator{
+
+	private ClassProductList classProductList = new ClassProductList();
 	private int CurrentProductNumber=-1;
 
 
 	public boolean hasNext() {
 		return CurrentProductNumber < classProductList.size() - 1;
 		//return false;
+	}
+
+	@Override
+	public Object next() {
+		return null;
 	}
 
 	ProductIterator(ClassProductList classproductlist){
