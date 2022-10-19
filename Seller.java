@@ -15,7 +15,13 @@ public class Seller extends Person {
 	}
 
 	public void CreateProductMenu(Product product, int level) {
-		//return null;
+		if (level == 0)/// 0: MeatProduct defined in ProductSelectDialog.
+		{
+			ProductMenu productMenu = new MeatProductMenu();
+		} else/// 1: Product Produce
+		{
+			ProductMenu productMenu = new ProduceProductMenu();
+		}
 	}
 
 }

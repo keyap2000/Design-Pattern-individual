@@ -33,7 +33,7 @@ public abstract class ProductMenu extends JDialog {
 	}
 
 	private void jbInit() {
-		buttonChangeProduct.setText("ChangeCourse");
+		buttonChangeProduct.setText("Change Product");
 		buttonChangeProduct.setBounds(new Rectangle(101, 211, 73, 37));
 		buttonChangeProduct.addActionListener(this::buttonChangeProduct_actionPerformed);
 		this.getContentPane().setLayout(null);
@@ -84,10 +84,9 @@ public abstract class ProductMenu extends JDialog {
 		Main.theFacade.addTrading(theProduct);
 		refresh();
 	}
-	void AssignmentViewButton_actionPerformed()
+	void TradingViewButton_actionPerformed()
 	{
 		Trading trading = (Trading) TradingCombox.getSelectedItem() ;
 		Main.theFacade.viewTrading(trading);
 	}
-
 }

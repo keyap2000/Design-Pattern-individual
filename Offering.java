@@ -6,7 +6,7 @@ public class Offering {
 	public String OfferingFileName;
 	public Date theSubmittedDate = new Date();
 	private OfferingList offeringList;
-	private int theBidding;
+	int theBidding;
 	private boolean submitted = false;
 
 	Offering(){
@@ -23,9 +23,9 @@ public class Offering {
 		String string;
 		string = theOfferor + "  " + OfferingFileName + " Bidding=" + getBiddingInt() + "  ";
 		if (isSubmitted())
-			string += "reported";
+			string += "submitted";
 		else
-			string += "not reported";
+			string += "not submitted";
 
 		return (string);
 	}

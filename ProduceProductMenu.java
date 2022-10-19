@@ -21,7 +21,7 @@ public class ProduceProductMenu extends ProductMenu {
 	public void showViewButton() {
 		TradingViewButton.setText("View");
 		TradingViewButton.setBounds(new Rectangle(290, 54, 79, 29));
-		TradingViewButton.addActionListener(e -> AssignmentViewButton_actionPerformed());
+		TradingViewButton.addActionListener(e -> TradingViewButton_actionPerformed());
 		OptionViewButton.setText("View");
 		OptionViewButton.setBounds(new Rectangle(290, 124, 79, 29));
 		this.getContentPane().add(TradingViewButton, null);
@@ -29,10 +29,10 @@ public class ProduceProductMenu extends ProductMenu {
 	}
 
 	public void showRadioButton() {
-		TradingRadio.setText("Assignment");
+		TradingRadio.setText("Trading");
 		TradingRadio.setBounds(new Rectangle(21, 55, 103, 26));
 		this.getContentPane().add(TradingRadio, null);
-		OptionRadio.setText("LowLevelExperiment");
+		OptionRadio.setText("Produce Product");
 		OptionRadio.setBounds(new Rectangle(21, 128, 103, 26));
 		this.getContentPane().add(OptionRadio, null);
 	}
@@ -48,5 +48,4 @@ public class ProduceProductMenu extends ProductMenu {
 		this.getContentPane().add(OptionCombo, null);
 		refresh();
 	}
-
 }

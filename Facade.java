@@ -9,23 +9,9 @@ public class Facade {
 
 	private int nProductCategory;
 
-	private ClassProductList theProductList;
+	ClassProductList theProductList;
 
 	private Person thePerson;
-
-	/* if(UserType == 0){
-		Buyer
-	}
-	else{
-		seller
-	}
-	if(nProductCategory == 0){
-		meat
-	}
-	else{
-		produce
-	}
-	*/
 
 	Facade(){
 
@@ -83,10 +69,10 @@ public class Facade {
 	}
 
 	public void createUser(UserInfoItem userinfoitem) {
-		if (userinfoitem.UserType == UserInfoItem.USER_TYPE.Buyer) /// student
+		if (userinfoitem.UserType == UserInfoItem.USER_TYPE.Buyer) /// buyer
 		{
 			thePerson = new Buyer();
-		} else /// instructor
+		} else /// seller
 		{
 			thePerson = new Seller();
 		}

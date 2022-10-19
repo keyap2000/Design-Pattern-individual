@@ -28,7 +28,7 @@ public class BuyerTradingMenu extends TradingMenu {
         }
     }
         private void jbInit() {
-            jLabel1.setText("Assignment : ");
+            jLabel1.setText("Trading : ");
             jLabel1.setBounds(new Rectangle(20, 36, 91, 18));
             this.getContentPane().setLayout(null);
             lTradingName.setText("jLabel2");
@@ -37,13 +37,13 @@ public class BuyerTradingMenu extends TradingMenu {
             jLabel3.setBounds(new Rectangle(21, 81, 92, 18));
             lDueDate.setText("jLabel4");
             lDueDate.setBounds(new Rectangle(254, 82, 294, 18));
-            jLabel5.setText("Solution");
+            jLabel5.setText("Offering");
             jLabel5.setBounds(new Rectangle(24, 128, 93, 18));
             tbOffering.setText("jTextField1");
             tbOffering.setBounds(new Rectangle(251, 127, 211, 22));
-            jLabel6.setText("Suggested Solution");
+            jLabel6.setText("Suggested Offering");
             jLabel6.setBounds(new Rectangle(24, 174, 117, 18));
-            jLabel7.setText("Grade");
+            jLabel7.setText("Bidding");
             jLabel7.setBounds(new Rectangle(23, 224, 41, 18));
             lSuggestedOffering.setText("jLabel8");
             lSuggestedOffering.setBounds(new Rectangle(259, 169, 201, 18));

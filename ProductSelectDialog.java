@@ -8,8 +8,8 @@ public class ProductSelectDialog extends JDialog {
         int nProductCategory = 0;
         private boolean m_bLogout = false;
         private JComboBox<Product> ProductNameCom = new JComboBox<>();
-        private JRadioButton HighLevelRadio = new JRadioButton();
-        private JRadioButton LowLevelRadio = new JRadioButton();
+        private JRadioButton MeatRadio = new JRadioButton();
+        private JRadioButton ProduceRadio = new JRadioButton();
         private JLabel jLabel1 = new JLabel();
         private JButton OKButton = new JButton();
         private ButtonGroup buttonGroup1 = new ButtonGroup();
@@ -28,12 +28,12 @@ public class ProductSelectDialog extends JDialog {
         private void jbInit() {
             this.getContentPane().setLayout(null);
             ProductNameCom.setBounds(new Rectangle(155, 41, 203, 22));
-            HighLevelRadio.setText("HighLevel");
-            HighLevelRadio.setBounds(new Rectangle(50, 87, 103, 26));
-            LowLevelRadio.setToolTipText("");
-            LowLevelRadio.setSelected(true);
-            LowLevelRadio.setText("LowLevel");
-            LowLevelRadio.setBounds(new Rectangle(236, 88, 103, 26));
+            MeatRadio.setText("Meat");
+            MeatRadio.setBounds(new Rectangle(50, 87, 103, 26));
+            ProduceRadio.setToolTipText("");
+            ProduceRadio.setSelected(true);
+            ProduceRadio.setText("Produce");
+            ProduceRadio.setBounds(new Rectangle(236, 88, 103, 26));
             jLabel1.setText("ProductName");
             jLabel1.setBounds(new Rectangle(39, 44, 85, 18));
             OKButton.setText("OK");
@@ -44,22 +44,22 @@ public class ProductSelectDialog extends JDialog {
             buttonLogout.addActionListener(this::buttonLogout_actionPerformed);
             this.getContentPane().add(ProductNameCom, null);
             this.getContentPane().add(jLabel1, null);
-            this.getContentPane().add(HighLevelRadio, null);
-            this.getContentPane().add(LowLevelRadio, null);
+            this.getContentPane().add(MeatRadio, null);
+            this.getContentPane().add(ProduceRadio, null);
             this.getContentPane().add(OKButton, null);
             this.getContentPane().add(buttonLogout, null);
-            buttonGroup1.add(HighLevelRadio);
-            buttonGroup1.add(LowLevelRadio);
+            buttonGroup1.add(MeatRadio);
+            buttonGroup1.add(ProduceRadio);
         }
 
         /*
-         * show the theCourseList in a combox Show the Course type selection button return the pointer pointing to the
-         * Course object return the Course Type
+         * show the theProductList in a combox. Show the product type selection button; return the pointer pointing to the
+         * product object return the product Type
          */
 
         Product ShowDlg(ClassProductList productList) {
 
-            // 0 HighLevel presentation 1 LowLevel Experiment
+            // 0 : meat product, 1 : produce product
             ProductIterator theIterator = new ProductIterator(productList);
             Product product;
             while ((product = (Product) theIterator.Next()) != null) /// end of the list
@@ -72,10 +72,10 @@ public class ProductSelectDialog extends JDialog {
 
         private void OKButton_actionPerformed(ActionEvent e) {
             SelectedProduct = (Product) ProductNameCom.getSelectedItem();
-            if (HighLevelRadio.isSelected())
-                nProductCategory = 0; // highlevel course: 0
+            if (MeatRadio.isSelected())
+                nProductCategory = 0; // meat product : 0
             else
-                nProductCategory = 1; // lowlevel course: 1
+                nProductCategory = 1; // produce product: 1
             dispose();
         }
 

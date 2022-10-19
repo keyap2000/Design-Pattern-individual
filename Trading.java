@@ -6,12 +6,11 @@ public class Trading {
 	public String tradingName;
 	public Offering SuggestOffering = new Offering();
 	private Product product;
-	private OfferingList offeringList = new OfferingList();
-	Offering offering = new Offering();
+	OfferingList offeringList = new OfferingList();
 	String offeringName;
 	Date DueDate=new Date();
 
-	public  Trading(){}
+	public Trading(){}
 
 	////add the theSolution to the Solutionlist
 	void AddOffering(Offering offering)
@@ -37,5 +36,4 @@ public class Trading {
 	public void accept(NodeVisitor visitor) {
 		visitor.visitTrading(this);
 	}
-
 }

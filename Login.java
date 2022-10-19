@@ -72,15 +72,15 @@ public class Login extends JDialog {
     private void loginButton_actionPerformed(ActionEvent e) {
         BufferedReader file;
         m_bExit = false;
-        System.out.println("login clicked");
+        System.out.println("login button clicked");
         try {
             if (StudentRadio.isSelected())//// student
             {
-                UserType = UserInfoItem.USER_TYPE.Buyer; /// 0 for student
+                UserType = UserInfoItem.USER_TYPE.Buyer; /// 0 for buyer
                 file = new BufferedReader(new FileReader("BuyerInfo.txt"));
             } else// instructor
             {
-                UserType = UserInfoItem.USER_TYPE.Seller; // 1 for instructor
+                UserType = UserInfoItem.USER_TYPE.Seller; // 1 for seller
                 file = new BufferedReader(new FileReader("SellerInfo.txt"));
             }
             UserBox = UserNameText.getText();
@@ -119,12 +119,12 @@ public class Login extends JDialog {
         try{
             if (true)//// Buyer - BuyerRadio.isSelected()
             {
-                UserType = UserInfoItem.USER_TYPE.Buyer; /// 0 for student
-                file = new BufferedReader(new FileReader("StuInfo.txt"));
+                UserType = UserInfoItem.USER_TYPE.Buyer; /// 0 for buyer
+                file = new BufferedReader(new FileReader("BuyerInfo.txt"));
             } else// instructor
             {
-                UserType = UserInfoItem.USER_TYPE.Seller; // 1 for instructor
-                file = new BufferedReader(new FileReader("InsInfor.txt"));
+                UserType = UserInfoItem.USER_TYPE.Seller; // 1 for seller
+                file = new BufferedReader(new FileReader("SellerInfo.txt"));
             }
             String loginCredentials, UserName, Password;
         }catch(Exception exception){

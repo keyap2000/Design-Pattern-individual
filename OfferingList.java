@@ -8,9 +8,5 @@ public class OfferingList extends ArrayList<Offering> {
 
 	OfferingList(){}
 
-//	int size(){
-//		return offering.size();
-//	}
-
 	//shortcut to comment multiple lines simultaneously - command + /
 }

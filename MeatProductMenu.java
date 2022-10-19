@@ -23,7 +23,7 @@ public class MeatProductMenu extends ProductMenu {
 	public void showViewButton() {
 		TradingViewButton.setText("View");
 		TradingViewButton.setBounds(new Rectangle(290, 54, 79, 29));
-		TradingViewButton.addActionListener(e -> AssignmentViewButton_actionPerformed());
+		TradingViewButton.addActionListener(e -> TradingViewButton_actionPerformed());
 		OptionViewButton.setText("View");
 		OptionViewButton.setBounds(new Rectangle(290, 124, 79, 29));
 		this.getContentPane().add(TradingViewButton, null);
@@ -34,7 +34,7 @@ public class MeatProductMenu extends ProductMenu {
 		TradingRadio.setText("Trading");
 		TradingRadio.setBounds(new Rectangle(21, 55, 103, 26));
 		this.getContentPane().add(TradingRadio, null);
-		OptionRadio.setText("HighLevel Presentation");
+		OptionRadio.setText("Meat Product");
 		OptionRadio.setBounds(new Rectangle(21, 128, 103, 26));
 		this.getContentPane().add(OptionRadio, null);
 	}
@@ -52,8 +52,5 @@ public class MeatProductMenu extends ProductMenu {
 	}
 
 	void TradingAddButton_actionPerformed() {
-	}
-
-	void AssignmentViewButton_actionPerformed() {
 	}
 }

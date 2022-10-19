@@ -2,7 +2,7 @@ import java.util.Iterator;
 
 public class ProductIterator implements Iterator{
 
-	private ClassProductList classProductList = new ClassProductList();
+	private ClassProductList classProductList;
 	private int CurrentProductNumber=-1;
 
 	ProductIterator(ClassProductList classproductlist){
@@ -12,7 +12,6 @@ public class ProductIterator implements Iterator{
 	public boolean hasNext() {
 		System.out.println("class product list : " + classProductList);
 		return CurrentProductNumber < classProductList.size() - 1;
-		//return false;
 	}
 
 	@Override
@@ -42,8 +41,7 @@ public class ProductIterator implements Iterator{
 	}
 
     public Product next(String strProductName) {
-		Product product;
-		product = (Product) Next();
+		Product product = (Product) Next();
 		while(product != null)
 		{
 			if(strProductName.compareTo(product.toString())==0)
@@ -54,5 +52,4 @@ public class ProductIterator implements Iterator{
 		}
 		return null;
 	}
-
 }

@@ -18,13 +18,11 @@ public class OfferingIterator implements Iterator {
 		return CurrentOfferingNumber <  offeringlist.size() - 1;
 	}
 
-	public Product Next() {
-		//return type - Offering
-
+	public Offering Next() {
 		if (hasNext())
 		{
 			CurrentOfferingNumber ++;
-			return (Product) offeringlist.get(CurrentOfferingNumber);
+			return (Offering) offeringlist.get(CurrentOfferingNumber);
 		}
 		else
 		{
