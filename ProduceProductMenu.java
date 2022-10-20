@@ -2,8 +2,6 @@ import java.awt.*;
 
 public class ProduceProductMenu extends ProductMenu {
 
-	private MeatProductMenu meatProductMenu;
-
 	public void showMenu() {
 
 	}

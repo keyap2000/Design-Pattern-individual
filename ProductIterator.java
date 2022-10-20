@@ -16,7 +16,13 @@ public class ProductIterator implements Iterator{
 
 	@Override
 	public Object next() {
-		return null;
+		if(hasNext()){
+			CurrentProductNumber ++;
+			return classProductList.get(CurrentProductNumber);
+		}
+		else{
+			return null;
+		}
 	}
 
 
@@ -39,7 +45,7 @@ public class ProductIterator implements Iterator{
 		classProductList.remove(CurrentProductNumber);
 	}
 
-    public Product next(String strProductName) {
+    public Object next(String strProductName) {
 		Product product = (Product) Next();
 		while(product != null)
 		{

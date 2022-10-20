@@ -19,9 +19,9 @@ public class Buyer extends Person {
 
 		//factory design pattern
 		if (level == 0) {
-			ProductMenu theProductMenu = new MeatProductMenu();
+			theProductMenu = new MeatProductMenu();
 		} else {
-			ProductMenu theProductMenu = new ProduceProductMenu();
+			theProductMenu = new ProduceProductMenu();
 		}
 	}
 }

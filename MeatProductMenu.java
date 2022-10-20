@@ -2,8 +2,6 @@ import java.awt.*;
 
 public class MeatProductMenu extends ProductMenu {
 
-	private ProduceProductMenu produceProductMenu;
-
 	MeatProductMenu(){}
 
 	public void showMenu() {
@@ -49,8 +47,5 @@ public class MeatProductMenu extends ProductMenu {
 		this.getContentPane().add(TradingCombox, null);
 		this.getContentPane().add(OptionCombo, null);
 		refresh();
-	}
-
-	void TradingAddButton_actionPerformed() {
 	}
 }

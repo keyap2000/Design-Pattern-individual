@@ -70,6 +70,7 @@ public class Login extends JDialog {
     }
 
     private void loginButton_actionPerformed(ActionEvent e) {
+
         BufferedReader file;
         m_bExit = false;
         System.out.println("login button clicked");
@@ -112,25 +113,6 @@ public class Login extends JDialog {
     private String GetPassword(String aline) {
         int Sep = aline.lastIndexOf(':');
         return aline.substring(Sep + 1);
-    }
-
-    void LoginButtonClicked(){
-        BufferedReader file;
-        System.out.println("login button clicked");
-
-        try{
-            if (true)//// Buyer - BuyerRadio.isSelected()
-            {
-                UserType = UserInfoItem.USER_TYPE.Buyer; /// 0 for buyer
-                file = new BufferedReader(new FileReader("BuyerInfo.txt"));
-            } else// seller
-            {
-                UserType = UserInfoItem.USER_TYPE.Seller; // 1 for seller
-                file = new BufferedReader(new FileReader("SellerInfo.txt"));
-            }
-        }catch(Exception exception){
-
-        }
     }
 
     // after login get the UserName of the login interface

@@ -24,7 +24,7 @@ public class Trading {
 
 	public String toString()
 	{
-		return offeringName;
+		return tradingName;
 	}
 
 	String getDueDateString()
@@ -35,4 +35,5 @@ public class Trading {
 	public void accept(NodeVisitor visitor) {
 		visitor.visitTrading(this);
 	}
+
 }

@@ -63,7 +63,7 @@ public class ProductSelectDialog extends JDialog {
             //iterator design pattern
             ProductIterator theIterator = new ProductIterator(productList);
             Product product;
-            while ((product = (Product) theIterator.Next()) != null) /// end of the list
+            while ((product = (Product) theIterator.next()) != null) /// end of the list
             {
                 System.out.println("in product select dialog - ");
                 System.out.println(product);
