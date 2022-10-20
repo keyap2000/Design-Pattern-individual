@@ -1,12 +1,11 @@
 public class Main {
+    //facade design pattern used
     static Facade theFacade = new Facade();
 
     public Main() {
     }
 
     public static void main(String[] args) {
-//		String strUsername;
-//		String strUserType = null;
         UserInfoItem userinfoitem = new UserInfoItem();
         theFacade.createProductList();
         while (true) {
@@ -15,8 +14,6 @@ public class Main {
             bExit = Facade.login(userinfoitem);
             if (bExit)
                 break;
-            // userinfoitem.strUserName = "pepe";
-            // userinfoitem.UserType = 1;
             theFacade.createUser(userinfoitem);
             theFacade.AttachProductToUser();
             if (userinfoitem.UserType == UserInfoItem.USER_TYPE.Buyer)
@@ -30,6 +27,5 @@ public class Main {
                 blogout = theFacade.productOperation();
             }
         }
-//    System.out.println(userinfoitem.strUserName +userinfoitem.UserType );
     }
 }

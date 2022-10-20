@@ -11,8 +11,6 @@ public class ReminderVisitor extends NodeVisitor {
 		m_Reminder = reminder;
 	}
 
-
-
     public void visitProduct(Product product) {
 		for (Trading trading : product.tradingList) {
 			trading.accept(this);
@@ -32,7 +30,6 @@ public class ReminderVisitor extends NodeVisitor {
 					+ trading.getDueDateString());
 		}
 		if (nDueDate < ntoday) {
-			// put to the
 			m_Reminder.listOverdue.add(trading.tradingName + " Due Date is " + trading.getDueDateString());
 		}
 	}
@@ -40,7 +37,7 @@ public class ReminderVisitor extends NodeVisitor {
 	public void visitFacade(Facade facade) {
 		ProductIterator productList = new ProductIterator(facade.theProductList);
 		while (productList.hasNext()) {
-			Product product = (Product) productList.next();
+			Product product = (Product) productList.Next();
 			product.accept(this);
 		}
 	}

@@ -43,7 +43,7 @@ public class SellerTradingMenu extends TradingMenu {
         jLabel3.setBounds(new Rectangle(28, 151, 118, 18));
         tbSuggestedOffering.setText("jTextField2");
         tbSuggestedOffering.setBounds(new Rectangle(197, 149, 339, 22));
-        buttonBidding.setText("Grade");
+        buttonBidding.setText("Bidding");
         buttonBidding.setBounds(new Rectangle(458, 199, 79, 29));
         buttonBidding.addActionListener(this::buttonBidding_actionPerformed);
         buttonSubmit.setText("Submit");

@@ -5,9 +5,9 @@ public class Facade {
 
 	private int UserType;
 
-	private Product theSelectedProduct;
+	private Product theSelectedProduct = null;
 
-	private int nProductCategory;
+	private int nProductCategory = 0;
 
 	ClassProductList theProductList;
 
@@ -19,15 +19,18 @@ public class Facade {
 
 	public static boolean login(UserInfoItem userinfoItem) {
 		Login login = new Login();
-		UserInfoItem userinfoitem = new UserInfoItem();
-		userinfoitem.strUserName = login.GetUserName();
-		userinfoitem.UserType = login.GetUserType();
-		return false;
+		login.setModal(true);
+		login.setVisible(true);
+		userinfoItem.strUserName = login.GetUserName();
+		userinfoItem.UserType = login.GetUserType();
+		System.out.println("userinfoitem : "+ userinfoItem);
+		return login.isExit();
 	}
 
 	public void addTrading(Product product) {
-		TradingMenu theTradingMenu = new TradingMenu();
+		TradingMenu theTradingMenu;
 
+		//bridge design pattern
 		if(thePerson.type == 0){		//buyer
 			theTradingMenu = new BuyerTradingMenu();
 		}
@@ -70,13 +73,15 @@ public class Facade {
 
 	public void createUser(UserInfoItem userinfoitem) {
 		if (userinfoitem.UserType == UserInfoItem.USER_TYPE.Buyer) /// buyer
+
+			//bridge design pattern
 		{
 			thePerson = new Buyer();
 		} else /// seller
 		{
 			thePerson = new Seller();
 		}
-		thePerson.uname = userinfoitem.strUserName;
+		thePerson.UserName = userinfoitem.strUserName;
 	}
 
 	public void createProductList() {
@@ -89,7 +94,7 @@ public class Facade {
 		try {
 			file = new BufferedReader(new FileReader("UserProduct.txt"));
 			String aline, strUserName, productName;
-			while ((aline = file.readLine()) != null) // not the EOF
+			while ((aline = file.readLine()) != null) // until the EOF is reached
 			{
 				strUserName = GetUserName(aline);
 				productName = GetProductName(aline);
@@ -99,11 +104,14 @@ public class Facade {
 				{
 					theSelectedProduct = FindProductByProductName(productName);
 					System.out.println("selected product is - " + theSelectedProduct);
-					if (theSelectedProduct != null) /// Find the product in the ProductList--->attach
+					if (theSelectedProduct != null) /// Find the product in the ProductList
 					{
+						System.out.println("current product is added in the person ");
 						thePerson.AddProduct(theSelectedProduct);
 					}
 				}
+//				Product product[] = {new Product("Meat", "Beef")};
+//				theSelectedProduct = product[0];
 				System.out.println("inside else");
 			}
 		} catch (Exception exception) {
@@ -111,6 +119,8 @@ public class Facade {
 	}
 
 	private Product FindProductByProductName(String strProductName) {
+
+		//iterator design pattern
 		ProductIterator Iterator = new ProductIterator(theProductList);
 		return (Product) Iterator.next(strProductName);
 	}

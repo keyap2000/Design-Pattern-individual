@@ -4,7 +4,6 @@ import java.awt.event.*;
 
 public abstract class ProductMenu extends JDialog {
 
-	//Person person = new Person();
 	Product theProduct = null;
 	boolean bLogout = true;
 

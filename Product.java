@@ -13,6 +13,8 @@ public class Product {
 		System.out.println("in product constructor : " + this.productName);
 	}
 
+	public Product(String productType, String productName){}
+
 	void AddTrading(Trading newTrading)
 	{
 		tradingList.add(newTrading);

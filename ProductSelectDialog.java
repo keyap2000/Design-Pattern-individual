@@ -60,10 +60,13 @@ public class ProductSelectDialog extends JDialog {
         Product ShowDlg(ClassProductList productList) {
 
             // 0 : meat product, 1 : produce product
+            //iterator design pattern
             ProductIterator theIterator = new ProductIterator(productList);
             Product product;
             while ((product = (Product) theIterator.Next()) != null) /// end of the list
             {
+                System.out.println("in product select dialog - ");
+                System.out.println(product);
                 ProductNameCom.addItem(product);
             }
             setVisible(true);

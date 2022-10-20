@@ -8,6 +8,8 @@ public class Reminder extends JDialog {
     private JLabel jLabel2 = new JLabel();
     java.awt.List listUpcoming = new java.awt.List();
     java.awt.List listOverdue = new java.awt.List();
+
+    private JTextField name;
     private Button buttonOK = new Button();
 
     Reminder(){
@@ -39,6 +41,8 @@ public class Reminder extends JDialog {
     }
 
     public void showReminder(ClassProductList getProductList) {
+
+        //visitor design pattern used
         ReminderVisitor visitor = new ReminderVisitor(this);
         visitor.visitFacade(Main.theFacade);
         setVisible(true);

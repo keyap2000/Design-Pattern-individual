@@ -12,7 +12,6 @@ public class Trading {
 
 	public Trading(){}
 
-	////add the theSolution to the Solutionlist
 	void AddOffering(Offering offering)
 	{
 		offeringList.add(offering);

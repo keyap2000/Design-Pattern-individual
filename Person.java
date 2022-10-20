@@ -4,8 +4,8 @@ public abstract class Person {
 
 	public int type = 0;		//by default buyer(0)
 	public String UserName;
-	String uname;
-	private ProductMenu theProductMenu;
+
+	ProductMenu theProductMenu;
 	ClassProductList classProductList;
 	Product currentProduct;
 
@@ -13,7 +13,11 @@ public abstract class Person {
 		classProductList = new ClassProductList();
 	}
 
-	public abstract void showMenu();
+	void showComboxes() {theProductMenu.showComboxes();	}
+
+	void show() {
+		theProductMenu.setVisible(true);
+	}
 
 	public void showAddButton() {
 		theProductMenu.showAddButton();
@@ -36,6 +40,8 @@ public abstract class Person {
 	}
 
 
+	public abstract boolean showMenu();
+
 	public abstract void CreateProductMenu(Product product, int level);
 
 	public ClassProductList GetProductList() {
@@ -43,19 +49,22 @@ public abstract class Person {
 	}
 
 	public void AddProduct(Product theSelectedProduct) {
+		System.out.println("selected product added");
 		classProductList.add(theSelectedProduct);
 	}
 
 	public boolean ShowMenu() {
-		// create a iterator for the trading list
-		//Iterator theIter=new ListIterator(CurrentProduct.AssList );
 
-		Iterator theIter = currentProduct.classProductList.iterator();
+		// creating a iterator for the trading list
+		//iterator design pattern
+		Iterator theIter = currentProduct.tradingList.iterator();
 
 		theProductMenu.theProduct = currentProduct;
 		Trading trading;
+		System.out.println("in person class showmenu method");
 		while (theIter.hasNext()) {
 			trading = (Trading) theIter.next();
+			System.out.println("trading in person showmenu : " + trading);
 			theProductMenu.TradingCombox.addItem(trading);
 		}
 		return false;

@@ -21,7 +21,7 @@ public class OfferingBiddingDialog extends JDialog {
     }
 
     private void jbInit() {
-        jLabel1.setText("Solution File Name");
+        jLabel1.setText("Offering File Name");
         jLabel1.setBounds(new Rectangle(23, 30, 121, 18));
         this.getContentPane().setLayout(null);
         tfBidding.setBounds(new Rectangle(25, 66, 100, 22));

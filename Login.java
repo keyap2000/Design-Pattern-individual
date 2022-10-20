@@ -92,8 +92,10 @@ public class Login extends JDialog {
                 Password = GetPassword(aline);
                 System.out.println("username : " + UserName);
                 System.out.println("password : " + Password);
-                if (UserName.compareTo(UserBox) == 0 && Password.compareTo(PasswordBox) == 0)
+                if (UserName.compareTo(UserBox) == 0 && Password.compareTo(PasswordBox) == 0){
+                    System.out.println("successful login");
                     LoginName = UserName;
+                }
             }
             if (LoginName != null) {
                 this.dispose();
@@ -121,12 +123,11 @@ public class Login extends JDialog {
             {
                 UserType = UserInfoItem.USER_TYPE.Buyer; /// 0 for buyer
                 file = new BufferedReader(new FileReader("BuyerInfo.txt"));
-            } else// instructor
+            } else// seller
             {
                 UserType = UserInfoItem.USER_TYPE.Seller; // 1 for seller
                 file = new BufferedReader(new FileReader("SellerInfo.txt"));
             }
-            String loginCredentials, UserName, Password;
         }catch(Exception exception){
 
         }

@@ -4,18 +4,20 @@ public class Buyer extends Person {
 		type = 0;
 	}
 
-	public void showMenu() {
+	@Override
+	public boolean showMenu() {
 		super.ShowMenu();
-		//showViewButtons();
-		//showComboxes();
-		//showRadios();
-		//show();
-		//return ifLogout();
+		showViewButton();
+		showComboxes();
+		showRadioButton();
+		show();
+		return ifLogout();
 	}
 
 	@Override
 	public void CreateProductMenu(Product product, int level) {
 
+		//factory design pattern
 		if (level == 0) {
 			ProductMenu theProductMenu = new MeatProductMenu();
 		} else {

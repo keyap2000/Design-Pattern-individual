@@ -7,10 +7,12 @@ public class ClassProductList extends ArrayList<Product> {
 	private ProductIterator productIterator;
 	private ReminderVisitor reminderVisitor;
 	private Product[] product;
-	
-	public ClassProductList(){
+
+	public void ClassProductList(){
 
 	}
+
+	public ClassProductList(){}
 
 	public void accept(NodeVisitor visitor) {
 		//visitor.visitFacade(visitor);
@@ -24,11 +26,11 @@ public class ClassProductList extends ArrayList<Product> {
 			file = new BufferedReader(new FileReader("ProductInfo.txt"));
 			while ((strProductName = file.readLine()) != null) {
 				Product product = new Product(strProductName);
-		        //product.productName = strProductName;
 				System.out.println("product : " + product);
 				add(product);
+				System.out.println("product added");
 			}
 		} catch (Exception ignored) {
 		}
-    }
+	}
 }

@@ -4,24 +4,25 @@ public class Seller extends Person {
 		type = 1;
 	}
 
-	public void showMenu() {
+	public boolean showMenu() {
 		super.ShowMenu();
 		showAddButton();
-		//showViewButtons();
-		//showComboxes();
-		//showRadios();
-		//show();
-		//return ifLogout();
+		showViewButton();
+		showComboxes();
+		showRadioButton();
+		show();
+		return ifLogout();
 	}
 
 	public void CreateProductMenu(Product product, int level) {
+
+		//factory design pattern
 		if (level == 0)/// 0: MeatProduct defined in ProductSelectDialog.
 		{
-			ProductMenu productMenu = new MeatProductMenu();
+			 theProductMenu = new MeatProductMenu();
 		} else/// 1: Product Produce
 		{
-			ProductMenu productMenu = new ProduceProductMenu();
+			 theProductMenu = new ProduceProductMenu();
 		}
 	}
-
 }

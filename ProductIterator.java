@@ -19,6 +19,7 @@ public class ProductIterator implements Iterator{
 		return null;
 	}
 
+
 	public Product Next() {
 
 		if(hasNext()){
@@ -28,8 +29,6 @@ public class ProductIterator implements Iterator{
 		else{
 			return null;
 		}
-		//Product product = new Product();
-		//return product;
 	}
 
 	public void MoveToHead() {
