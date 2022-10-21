@@ -4,13 +4,6 @@ import java.util.ArrayList;
 
 public class ClassProductList extends ArrayList<Product> {
 
-	private ReminderVisitor reminderVisitor;
-	private Product[] product;
-
-	public void ClassProductList(){
-
-	}
-
 	public ClassProductList(){}
 
     public void InitializeFromFile() {
@@ -24,6 +17,7 @@ public class ClassProductList extends ArrayList<Product> {
 				add(product);
 				System.out.println("product added");
 			}
+
 		} catch (Exception ignored) {
 		}
 	}

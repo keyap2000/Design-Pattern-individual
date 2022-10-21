@@ -24,6 +24,7 @@ public class Product {
 		return productName;
 	}
 
+	//visitor design pattern
 	void accept(NodeVisitor visitor)
 	{
 		visitor.visitProduct(this);

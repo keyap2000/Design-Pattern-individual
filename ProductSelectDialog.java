@@ -18,7 +18,7 @@ public class ProductSelectDialog extends JDialog {
         ProductSelectDialog() {
             try {
                 jbInit();
-                setSize(420, 238);
+                setSize(400, 240);
                 setModal(true);
             } catch (Exception e) {
                 e.printStackTrace();
@@ -58,6 +58,8 @@ public class ProductSelectDialog extends JDialog {
          */
 
         Product ShowDlg(ClassProductList productList) {
+
+            productList.InitializeFromFile();
 
             // 0 : meat product, 1 : produce product
             //iterator design pattern

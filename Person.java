@@ -61,10 +61,11 @@ public abstract class Person {
 
 		theProductMenu.theProduct = currentProduct;
 		Trading trading;
-		System.out.println("in person class showmenu method");
+		System.out.println("in person class show menu method");
 		while (theIter.hasNext()) {
+			System.out.println("in person while loop");
 			trading = (Trading) theIter.next();
-			System.out.println("trading in person showmenu : " + trading);
+			System.out.println("trading in person show menu : " + trading);
 			theProductMenu.TradingCombox.addItem(trading);
 		}
 		return false;

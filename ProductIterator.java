@@ -2,10 +2,11 @@ import java.util.Iterator;
 
 public class ProductIterator implements Iterator{
 
-	private ClassProductList classProductList;
+	private ClassProductList classProductList = null;
 	private int CurrentProductNumber=-1;
 
 	ProductIterator(ClassProductList classproductlist){
+		System.out.println("in product iterator" + classproductlist);
 		classProductList = classproductlist;
 	}
 
@@ -14,20 +15,7 @@ public class ProductIterator implements Iterator{
 		return CurrentProductNumber < classProductList.size() - 1;
 	}
 
-	@Override
 	public Object next() {
-		if(hasNext()){
-			CurrentProductNumber ++;
-			return classProductList.get(CurrentProductNumber);
-		}
-		else{
-			return null;
-		}
-	}
-
-
-	public Product Next() {
-
 		if(hasNext()){
 			CurrentProductNumber ++;
 			return classProductList.get(CurrentProductNumber);
@@ -41,19 +29,19 @@ public class ProductIterator implements Iterator{
 
 	}
 
-	public void Remove() {
+	public void remove() {
 		classProductList.remove(CurrentProductNumber);
 	}
 
     public Object next(String strProductName) {
-		Product product = (Product) Next();
+		Product product = (Product) next();
 		while(product != null)
 		{
 			if(strProductName.compareTo(product.toString())==0)
 			{
 				return product;
 			}
-			product = (Product) Next();
+			product = (Product) next();
 		}
 		return null;
 	}

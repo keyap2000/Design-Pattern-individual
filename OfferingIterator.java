@@ -18,23 +18,11 @@ public class OfferingIterator implements Iterator {
 		return CurrentOfferingNumber <  offeringlist.size() - 1;
 	}
 
-	public Offering Next() {
-		if (hasNext())
-		{
-			CurrentOfferingNumber ++;
-			return (Offering) offeringlist.get(CurrentOfferingNumber);
-		}
-		else
-		{
-			return null;
-		}
-	}
-
 	public void MoveToHead() {
 		CurrentOfferingNumber=-1;
 	}
 
-	public void Remove() {
+	public void remove() {
 		offeringlist.remove(CurrentOfferingNumber);
 	}
 

@@ -44,6 +44,7 @@ public class Reminder extends JDialog {
 
         //visitor design pattern used
         ReminderVisitor visitor = new ReminderVisitor(this);
+        getProductList.InitializeFromFile();
         visitor.visitFacade(Main.theFacade);
         setVisible(true);
     }

@@ -79,7 +79,7 @@ public class Login extends JDialog {
             {
                 UserType = UserInfoItem.USER_TYPE.Buyer; /// 0 for buyer
                 file = new BufferedReader(new FileReader("BuyerInfo.txt"));
-            } else// instructor
+            } else// seller
             {
                 UserType = UserInfoItem.USER_TYPE.Seller; // 1 for seller
                 file = new BufferedReader(new FileReader("SellerInfo.txt"));

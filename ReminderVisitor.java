@@ -35,7 +35,7 @@ public class ReminderVisitor extends NodeVisitor {
 	public void visitFacade(Facade facade) {
 		ProductIterator productList = new ProductIterator(facade.theProductList);
 		while (productList.hasNext()) {
-			Product product = (Product) productList.Next();
+			Product product = (Product) productList.next();
 			product.accept(this);
 		}
 	}

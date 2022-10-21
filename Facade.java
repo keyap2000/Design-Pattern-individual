@@ -110,8 +110,6 @@ public class Facade {
 						thePerson.AddProduct(theSelectedProduct);
 					}
 				}
-//				Product product[] = {new Product("Meat", "Beef")};
-//				theSelectedProduct = product[0];
 				System.out.println("inside else");
 			}
 		} catch (Exception exception) {
@@ -121,7 +119,10 @@ public class Facade {
 	private Product FindProductByProductName(String strProductName) {
 
 		//iterator design pattern
+		System.out.println("in find prod by prod name : " + strProductName);
+		System.out.println("in find prod by prod name before : " + theProductList);
 		ProductIterator Iterator = new ProductIterator(theProductList);
+		System.out.println("in find product by prod name : " + theProductList);
 		return (Product) Iterator.next(strProductName);
 	}
 
@@ -135,7 +136,6 @@ public class Facade {
 		return aline.substring(0, Sep);
 	}
 
-	//actual return type - Product
 	public Boolean SelectProduct() {
 		ProductSelectDialog theDlg = new ProductSelectDialog();
 		theSelectedProduct = theDlg.ShowDlg(thePerson.classProductList);
@@ -144,9 +144,9 @@ public class Facade {
 		return theDlg.isLogout();
 	}
 
-	//actual return type - void
 	public boolean productOperation() {
 		thePerson.CreateProductMenu(theSelectedProduct, nProductCategory);
+		System.out.println("in product operation");
 		return thePerson.ShowMenu();
 		//// 0: logout
 		// 1: select other product
