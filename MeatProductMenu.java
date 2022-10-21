@@ -11,29 +11,29 @@ public class MeatProductMenu extends ProductMenu {
 	public void showAddButton() {
 		TradingAddButton.addActionListener(e -> TradingAddButton_actionPerformed());
 		TradingAddButton.setText("Add");
-		TradingAddButton.setBounds(new Rectangle(389, 54, 79, 29));
+		TradingAddButton.setBounds(new Rectangle(390, 55, 80, 30));
 		OptionAddButton.setText("Add");
-		OptionAddButton.setBounds(new Rectangle(390, 125, 79, 29));
+		OptionAddButton.setBounds(new Rectangle(390, 125, 80, 30));
 		this.getContentPane().add(TradingAddButton, null);
 		this.getContentPane().add(OptionAddButton, null);
 	}
 
 	public void showViewButton() {
 		TradingViewButton.setText("View");
-		TradingViewButton.setBounds(new Rectangle(290, 54, 79, 29));
+		TradingViewButton.setBounds(new Rectangle(290, 55, 80, 30));
 		TradingViewButton.addActionListener(e -> TradingViewButton_actionPerformed());
 		OptionViewButton.setText("View");
-		OptionViewButton.setBounds(new Rectangle(290, 124, 79, 29));
+		OptionViewButton.setBounds(new Rectangle(290, 125, 80, 30));
 		this.getContentPane().add(TradingViewButton, null);
 		this.getContentPane().add(OptionViewButton, null);
 	}
 
 	public void showRadioButton() {
 		TradingRadio.setText("Trading");
-		TradingRadio.setBounds(new Rectangle(21, 55, 103, 26));
+		TradingRadio.setBounds(new Rectangle(20, 55, 103, 26));
 		this.getContentPane().add(TradingRadio, null);
 		OptionRadio.setText("Meat Product");
-		OptionRadio.setBounds(new Rectangle(21, 128, 103, 26));
+		OptionRadio.setBounds(new Rectangle(20, 130, 103, 26));
 		this.getContentPane().add(OptionRadio, null);
 	}
 

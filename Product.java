@@ -9,7 +9,6 @@ public class Product {
 
 	public Product(String strProductName) {
 		this.productName = strProductName;
-		System.out.println("in product constructor : " + this.productName);
 	}
 
 	public Product(String productType, String productName){}

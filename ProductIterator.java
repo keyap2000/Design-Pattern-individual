@@ -6,15 +6,15 @@ public class ProductIterator implements Iterator{
 	private int CurrentProductNumber=-1;
 
 	ProductIterator(ClassProductList classproductlist){
-		System.out.println("in product iterator" + classproductlist);
 		classProductList = classproductlist;
 	}
 
+	//to check if it has any other object after current object
 	public boolean hasNext() {
-		System.out.println("class product list : " + classProductList);
 		return CurrentProductNumber < classProductList.size() - 1;
 	}
 
+	//to iterate over the next product objects
 	public Object next() {
 		if(hasNext()){
 			CurrentProductNumber ++;

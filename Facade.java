@@ -9,7 +9,7 @@ public class Facade {
 
 	private int nProductCategory = 0;
 
-	ClassProductList theProductList;
+	ClassProductList classProductList;
 
 	private Person thePerson;
 
@@ -21,9 +21,12 @@ public class Facade {
 		Login login = new Login();
 		login.setModal(true);
 		login.setVisible(true);
+
+		//get the username entered by user in GUI and store it in userinfoitem local variable
 		userinfoItem.strUserName = login.GetUserName();
+
+		//get the usertype by relating it with username of userinfoitem
 		userinfoItem.UserType = login.GetUserType();
-		System.out.println("userinfoitem : "+ userinfoItem);
 		return login.isExit();
 	}
 
@@ -45,6 +48,7 @@ public class Facade {
 	public void viewTrading(Trading trading) {
 		TradingMenu theTradingMenu;
 
+		//bridge design pattern
 		if(thePerson.type == 0){		//buyer
 			theTradingMenu = new BuyerTradingMenu();
 		}
@@ -72,12 +76,12 @@ public class Facade {
 	}
 
 	public void createUser(UserInfoItem userinfoitem) {
-		if (userinfoitem.UserType == UserInfoItem.USER_TYPE.Buyer) /// buyer
+		if (userinfoitem.UserType == UserInfoItem.USER_TYPE.Buyer) // Buyer
 
 			//bridge design pattern
 		{
 			thePerson = new Buyer();
-		} else /// seller
+		} else // Seller
 		{
 			thePerson = new Seller();
 		}
@@ -85,8 +89,8 @@ public class Facade {
 	}
 
 	public void createProductList() {
-		theProductList = new ClassProductList();
-		theProductList.InitializeFromFile();
+		classProductList = new ClassProductList();
+		classProductList.InitializeFromFile();
 	}
 
 	public void AttachProductToUser() {
@@ -98,19 +102,19 @@ public class Facade {
 			{
 				strUserName = GetUserName(aline);
 				productName = GetProductName(aline);
-				System.out.println("username : " + strUserName);
-				System.out.println("product name : " + productName);
+
+				//if the current user and the username(data read from file) matches
 				if (strUserName.compareTo(thePerson.UserName) == 0) // for matching the UserName
 				{
+					//it will return the list of products connected to the current user; it will give option to the user
+					//to select the product
 					theSelectedProduct = FindProductByProductName(productName);
-					System.out.println("selected product is - " + theSelectedProduct);
+
 					if (theSelectedProduct != null) /// Find the product in the ProductList
 					{
-						System.out.println("current product is added in the person ");
 						thePerson.AddProduct(theSelectedProduct);
 					}
 				}
-				System.out.println("inside else");
 			}
 		} catch (Exception exception) {
 		}
@@ -119,10 +123,7 @@ public class Facade {
 	private Product FindProductByProductName(String strProductName) {
 
 		//iterator design pattern
-		System.out.println("in find prod by prod name : " + strProductName);
-		System.out.println("in find prod by prod name before : " + theProductList);
-		ProductIterator Iterator = new ProductIterator(theProductList);
-		System.out.println("in find product by prod name : " + theProductList);
+		ProductIterator Iterator = new ProductIterator(classProductList);
 		return (Product) Iterator.next(strProductName);
 	}
 
@@ -136,6 +137,7 @@ public class Facade {
 		return aline.substring(0, Sep);
 	}
 
+	//select product from the given options
 	public Boolean SelectProduct() {
 		ProductSelectDialog theDlg = new ProductSelectDialog();
 		theSelectedProduct = theDlg.ShowDlg(thePerson.classProductList);
@@ -148,7 +150,7 @@ public class Facade {
 		thePerson.CreateProductMenu(theSelectedProduct, nProductCategory);
 		System.out.println("in product operation");
 		return thePerson.ShowMenu();
-		//// 0: logout
+		// 0: logout
 		// 1: select other product
 	}
 }

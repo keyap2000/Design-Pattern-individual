@@ -13,6 +13,7 @@ public class OfferingIterator implements Iterator {
 		MoveToHead();
 	}
 
+	//to check if it has any other offering after current one
 	public boolean hasNext() {
 
 		return CurrentOfferingNumber <  offeringlist.size() - 1;
@@ -41,6 +42,7 @@ public class OfferingIterator implements Iterator {
 		return null;
 	}
 
+	//to iterate over the next offerings
 	public Object next()
 	{
 		if (hasNext())

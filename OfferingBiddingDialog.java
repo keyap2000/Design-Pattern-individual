@@ -8,7 +8,7 @@ public class OfferingBiddingDialog extends JDialog {
     private JLabel jLabel1 = new JLabel();
     private JTextField tfBidding = new JTextField();
     private JButton buttonOK = new JButton();
-    private JLabel labelOfferingFileName = new JLabel();
+    private JLabel labelOfferedPrice = new JLabel();
 
     OfferingBiddingDialog(){
         try {
@@ -28,10 +28,10 @@ public class OfferingBiddingDialog extends JDialog {
         buttonOK.setText("OK");
         buttonOK.setBounds(new Rectangle(217, 67, 79, 29));
         buttonOK.addActionListener(this::buttonOK_actionPerformed);
-        labelOfferingFileName.setBounds(new Rectangle(212, 34, 163, 18));
+        labelOfferedPrice.setBounds(new Rectangle(212, 34, 163, 18));
         this.getContentPane().add(jLabel1, null);
         this.getContentPane().add(tfBidding, null);
-        this.getContentPane().add(labelOfferingFileName, null);
+        this.getContentPane().add(labelOfferedPrice, null);
         this.getContentPane().add(buttonOK, null);
     }
 
@@ -43,7 +43,7 @@ public class OfferingBiddingDialog extends JDialog {
     public void show(Offering offering) {
         offering = offering;
         tfBidding.setText("" + offering.getBiddingInt());
-        labelOfferingFileName.setText(offering.OfferingFileName);
+        labelOfferedPrice.setText(offering.OfferedPrice);
         setVisible(true);
     }
 }

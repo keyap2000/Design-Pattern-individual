@@ -70,14 +70,16 @@ public class SellerTradingMenu extends TradingMenu {
         DateFormat tempDateFormat=DateFormat.getDateInstance(DateFormat.SHORT );
         try
         {
-            trading.DueDate=tempDateFormat.parse(tbDueDate.getText() );
+            trading.DueDate = tempDateFormat.parse(tbDueDate.getText() );
         }catch (Exception ignored){}
-        trading.SuggestOffering.OfferingFileName =tbSuggestedOffering.getText() ;
+        trading.SuggestOffering.OfferedPrice = tbSuggestedOffering.getText() ;
         dispose();
     }
 
     private void buttonSubmit_actionPerformed(ActionEvent actionEvent) {
-        OfferingIterator iter=new OfferingIterator(trading.offeringList);
+
+        //iterator design pattern
+        OfferingIterator iter = new OfferingIterator(trading.offeringList);
         while(iter.hasNext() )
         {
             Offering anOffer = (Offering) iter.next();
@@ -102,13 +104,15 @@ public class SellerTradingMenu extends TradingMenu {
 
         DateFormat theDateFormat=DateFormat.getDateInstance(DateFormat.SHORT );
         tbDueDate.setText(theDateFormat.format(trading.DueDate));
-        tbSuggestedOffering.setText(trading.SuggestOffering.OfferingFileName );
+        tbSuggestedOffering.setText(trading.SuggestOffering.OfferedPrice );
         refreshOfferingList();
         setVisible(true);
     }
 
     private void refreshOfferingList() {
         comboOfferingList.removeAllItems() ;
+
+        //iterator design pattern
         OfferingIterator offeringIter = new OfferingIterator(trading.offeringList);
         while(offeringIter.hasNext())
         {

@@ -11,6 +11,8 @@ public class ReminderVisitor extends NodeVisitor {
 
     public void visitProduct(Product product) {
 		for (Trading trading : product.tradingList) {
+
+			//visitor design pattern
 			trading.accept(this);
 		}
 	}
@@ -22,7 +24,7 @@ public class ReminderVisitor extends NodeVisitor {
 		int ntoday = calendar.get(Calendar.DAY_OF_YEAR);
 		calendar.setTime(trading.DueDate);
 		int nDueDate = calendar.get(Calendar.DAY_OF_YEAR);
-		if (nDueDate <= (ntoday + 1) && nDueDate >= ntoday) /// upcoming
+		if (nDueDate <= (ntoday + 1) && nDueDate >= ntoday) // upcoming
 		{
 			m_Reminder.listUpcoming.add("today is " + today.toString() + " " + trading.tradingName + " Due Date is "
 					+ trading.getDueDateString());
@@ -33,9 +35,13 @@ public class ReminderVisitor extends NodeVisitor {
 	}
 
 	public void visitFacade(Facade facade) {
-		ProductIterator productList = new ProductIterator(facade.theProductList);
+
+		//iterator design pattern
+		ProductIterator productList = new ProductIterator(facade.classProductList);
 		while (productList.hasNext()) {
 			Product product = (Product) productList.next();
+
+			//visitor design pattern
 			product.accept(this);
 		}
 	}

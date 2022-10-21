@@ -5,9 +5,7 @@ public class Trading {
 
 	public String tradingName;
 	public Offering SuggestOffering = new Offering();
-	private Product product;
 	OfferingList offeringList = new OfferingList();
-	String offeringName;
 	Date DueDate=new Date();
 
 	public Trading(){}
@@ -17,7 +15,7 @@ public class Trading {
 		offeringList.add(offering);
 	}
 
-	OfferingIterator GetSolutionIterator()
+	OfferingIterator GetOfferingIterator()
 	{
 		return new OfferingIterator(offeringList);
 	}
@@ -32,6 +30,8 @@ public class Trading {
 		DateFormat dateFormat=DateFormat.getDateInstance(DateFormat.SHORT);
 		return  dateFormat.format(DueDate);
 	}
+
+	//visitor design pattern
 	public void accept(NodeVisitor visitor) {
 		visitor.visitTrading(this);
 	}

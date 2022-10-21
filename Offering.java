@@ -2,10 +2,15 @@ import java.util.Date;
 
 public class Offering {
 
+	//the buyer who offered the price for any product
 	public String theOfferor = "";
-	public String OfferingFileName;
+
+	//the price offered
+	public String OfferedPrice;
+
+	//on which date the price was offered
 	public Date theSubmittedDate = new Date();
-	private OfferingList offeringList;
+
 	int theBidding;
 	private boolean submitted = false;
 
@@ -21,7 +26,7 @@ public class Offering {
 
 	public String toString() {
 		String string;
-		string = theOfferor + "  " + OfferingFileName + " Bidding=" + getBiddingInt() + "  ";
+		string = theOfferor + "  " + OfferedPrice + " Bidding=" + getBiddingInt() + "  ";
 		if (isSubmitted())
 			string += "submitted";
 		else

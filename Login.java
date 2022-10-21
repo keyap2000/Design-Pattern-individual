@@ -16,8 +16,8 @@ public class Login extends JDialog {
     private JButton buttonExit = new JButton();
     private JTextField UserNameText = new JTextField();
     private JPasswordField PasswordText = new JPasswordField();
-    private JRadioButton StudentRadio = new JRadioButton();
-    private JRadioButton InstructorRadio = new JRadioButton();
+    private JRadioButton BuyerRadio = new JRadioButton();
+    private JRadioButton SellerRadio = new JRadioButton();
     private ButtonGroup buttonGroup1 = new ButtonGroup();
 
     Login(){
@@ -43,21 +43,21 @@ public class Login extends JDialog {
         buttonExit.addActionListener(e -> buttonExit_actionPerformed());
         UserNameText.setBounds(new Rectangle(119, 52, 144, 22));
         PasswordText.setBounds(new Rectangle(118, 119, 147, 22));
-        StudentRadio.setSelected(true);
-        StudentRadio.setText("Buyer");
-        StudentRadio.setBounds(new Rectangle(37, 164, 103, 26));
-        InstructorRadio.setText("Seller");
-        InstructorRadio.setBounds(new Rectangle(177, 162, 103, 26));
+        BuyerRadio.setSelected(true);
+        BuyerRadio.setText("Buyer");
+        BuyerRadio.setBounds(new Rectangle(37, 164, 103, 26));
+        SellerRadio.setText("Seller");
+        SellerRadio.setBounds(new Rectangle(177, 162, 103, 26));
         this.getContentPane().add(jLabel1, null);
         this.getContentPane().add(jLabel2, null);
         this.getContentPane().add(loginButton, null);
         this.getContentPane().add(buttonExit, null);
         this.getContentPane().add(UserNameText, null);
         this.getContentPane().add(PasswordText, null);
-        this.getContentPane().add(StudentRadio, null);
-        this.getContentPane().add(InstructorRadio, null);
-        buttonGroup1.add(StudentRadio);
-        buttonGroup1.add(InstructorRadio);
+        this.getContentPane().add(BuyerRadio, null);
+        this.getContentPane().add(SellerRadio, null);
+        buttonGroup1.add(BuyerRadio);
+        buttonGroup1.add(SellerRadio);
     }
 
     private void buttonExit_actionPerformed() {
@@ -75,11 +75,11 @@ public class Login extends JDialog {
         m_bExit = false;
         System.out.println("login button clicked");
         try {
-            if (StudentRadio.isSelected())//// student
+            if (BuyerRadio.isSelected())    // buyer
             {
-                UserType = UserInfoItem.USER_TYPE.Buyer; /// 0 for buyer
+                UserType = UserInfoItem.USER_TYPE.Buyer; // 0 for buyer
                 file = new BufferedReader(new FileReader("BuyerInfo.txt"));
-            } else// seller
+            } else  // seller
             {
                 UserType = UserInfoItem.USER_TYPE.Seller; // 1 for seller
                 file = new BufferedReader(new FileReader("SellerInfo.txt"));
@@ -91,8 +91,6 @@ public class Login extends JDialog {
             while ((aline = file.readLine()) != null) {
                 UserName = GetUserName(aline);
                 Password = GetPassword(aline);
-                System.out.println("username : " + UserName);
-                System.out.println("password : " + Password);
                 if (UserName.compareTo(UserBox) == 0 && Password.compareTo(PasswordBox) == 0){
                     System.out.println("successful login");
                     LoginName = UserName;

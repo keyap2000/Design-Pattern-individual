@@ -27,6 +27,8 @@ public class BuyerTradingMenu extends TradingMenu {
             e.printStackTrace();
         }
     }
+
+        //for GUI
         private void jbInit() {
             jLabel1.setText("Trading : ");
             jLabel1.setBounds(new Rectangle(20, 36, 91, 18));
@@ -70,35 +72,38 @@ public class BuyerTradingMenu extends TradingMenu {
 
     }
 
-    /*
-     * check if the buyer has already had a offering or not. if not , create a new
-     * offering for the buyer. after showing the offering attach the offering;
+    /* check if the buyer has already had an offering or not. if not, create a new offering for the buyer.
+    after showing the offering, attach it to the offering list
      */
     public void ShowMenu(Trading trading, Person thePerson) {
-        OfferingIterator theIter = trading.GetSolutionIterator();
+
+        //iterator design pattern
+        OfferingIterator theIter = trading.GetOfferingIterator();
         Offering theOffering = (Offering) theIter.next(thePerson.UserName);
         if (theOffering == null) {
             tbOffering.setText("");
             lBidding.setText("-1");
         } else {
-            tbOffering.setText(theOffering.OfferingFileName);
+            tbOffering.setText(theOffering.OfferedPrice);
             lBidding.setText(theOffering.getBiddingString());
 
         }
 
         lTradingName.setText(trading.tradingName);
         lDueDate.setText(trading.DueDate.toString());
-        lSuggestedOffering.setText(trading.SuggestOffering.OfferingFileName);
+        lSuggestedOffering.setText(trading.SuggestOffering.OfferedPrice);
 
         setVisible(true);
 
         if (boolSubmit) {
             if (theOffering == null) {
                 theOffering = new Offering();
+
+                //will add the current offering to the trading list; so other users can view it
                 trading.AddOffering(theOffering);
             }
             theOffering.theOfferor = thePerson.UserName;
-            theOffering.OfferingFileName = tbOffering.getText();
+            theOffering.OfferedPrice = tbOffering.getText();
             theOffering.theSubmittedDate = new Date();
         }
     }

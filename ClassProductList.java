@@ -6,6 +6,8 @@ public class ClassProductList extends ArrayList<Product> {
 
 	public ClassProductList(){}
 
+
+	//read content from the file : Product Category(Meat, Produce) and Product name
     public void InitializeFromFile() {
 		try {
 			BufferedReader file;
@@ -13,11 +15,9 @@ public class ClassProductList extends ArrayList<Product> {
 			file = new BufferedReader(new FileReader("ProductInfo.txt"));
 			while ((strProductName = file.readLine()) != null) {
 				Product product = new Product(strProductName);
-				System.out.println("product : " + product);
 				add(product);
-				System.out.println("product added");
 			}
-
+			System.out.println("products added successfully !");
 		} catch (Exception ignored) {
 		}
 	}

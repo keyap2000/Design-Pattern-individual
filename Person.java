@@ -42,6 +42,7 @@ public abstract class Person {
 
 	public abstract boolean showMenu();
 
+	//create product menu on the basis of the person category - buyer/seller
 	public abstract void CreateProductMenu(Product product, int level);
 
 	public ClassProductList GetProductList() {
@@ -63,9 +64,7 @@ public abstract class Person {
 		Trading trading;
 		System.out.println("in person class show menu method");
 		while (theIter.hasNext()) {
-			System.out.println("in person while loop");
 			trading = (Trading) theIter.next();
-			System.out.println("trading in person show menu : " + trading);
 			theProductMenu.TradingCombox.addItem(trading);
 		}
 		return false;

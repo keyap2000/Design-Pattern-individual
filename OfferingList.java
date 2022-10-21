@@ -8,5 +8,4 @@ public class OfferingList extends ArrayList<Offering> {
 
 	OfferingList(){}
 
-	//shortcut to comment multiple lines simultaneously - command + /
 }

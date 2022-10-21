@@ -17,10 +17,10 @@ public class Seller extends Person {
 	public void CreateProductMenu(Product product, int level) {
 
 		//factory design pattern
-		if (level == 0)/// 0: MeatProduct defined in ProductSelectDialog.
+		if (level == 0) // 0: MeatProduct defined in ProductSelectDialog.
 		{
 			 theProductMenu = new MeatProductMenu();
-		} else/// 1: Product Produce
+		} else // 1: Product Produce
 		{
 			 theProductMenu = new ProduceProductMenu();
 		}

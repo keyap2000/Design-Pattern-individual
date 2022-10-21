@@ -52,10 +52,8 @@ public class ProductSelectDialog extends JDialog {
             buttonGroup1.add(ProduceRadio);
         }
 
-        /*
-         * show the theProductList in a combox. Show the product type selection button; return the pointer pointing to the
-         * product object return the product Type
-         */
+        /* show the classProductList in a combox. Show the product type selection button; return the pointer pointing
+        to the product object return the product Type */
 
         Product ShowDlg(ClassProductList productList) {
 
@@ -67,8 +65,6 @@ public class ProductSelectDialog extends JDialog {
             Product product;
             while ((product = (Product) theIterator.next()) != null) /// end of the list
             {
-                System.out.println("in product select dialog - ");
-                System.out.println(product);
                 ProductNameCom.addItem(product);
             }
             setVisible(true);
